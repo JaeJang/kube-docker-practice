@@ -14,17 +14,17 @@ app.server = http.createServer(app);
 app.use(bodyParser.urlencoded({ extended : false}));
 app.use(bodyParser.json());
 app.use(cors());
-new Router(app);
 
 const db = mysql.createConnection({
     host: key.host,
-    use: key.user,
+    user: key.user,
     password: key.pword,
     database: key.database
 });
 
 app.set('db', db);
 
+new Router(app);
 
 app.server.listen(process.env.PORT || PORT, () => {
     console.log("connected on port 3001");
