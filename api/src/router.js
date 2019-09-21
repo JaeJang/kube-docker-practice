@@ -26,16 +26,20 @@ class Router {
         });
 
         app.post('/add', (req,res) => {
-            if(req.body.newPost) {
-                db.query('INSERT INTO Test SET ?', req.body.newPost, (err, results) => {
+            if(req.body.post) {
+                const newPost = {
+                    post: req.body.post
+                };
+                db.query('INSERT INTO Test SET ?', newPost, (err, results) => {
                     if (err) {
                         return res.status(503).json({
                             error: {
-                                message: "Unable to save"
+                                message: "Unable to save",
+                                error: err
                             }
                         });
                     }
-                    return res.status(200).json(result);
+                    return res.status(200).json(results);
                 });
             }
         });
