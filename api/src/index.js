@@ -7,7 +7,7 @@ import mysql from 'mysql';
 import Router from './router';
 import key from './keys'; 
 
-const PORT = 3001;
+const PORT = 5000;
 const app = express();
 app.server = http.createServer(app);
 
@@ -26,7 +26,7 @@ app.set('db', db);
 
 new Router(app);
 
-app.server.listen(process.env.PORT || PORT, () => {
+app.server.listen(PORT, () => {
     console.log("connected on port 3001");
 });
 
