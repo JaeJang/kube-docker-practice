@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: 
+          image: jaejang5566/kube-docker-api
           ports:
             - containerPort: 5000
           env:
@@ -33,6 +33,6 @@ spec:
             - name: MYSQL_HOST
               valueFrom:
                 secretKeyRef:
-                  name: mysql_pword
+                  name: mysql-pword
                   key: MYSQL_PWORD
 

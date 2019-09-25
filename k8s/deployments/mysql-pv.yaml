@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv-storage
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  #resources:
+  #  requests:
+  #    storage: 1Gi
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: "/home/jae/dev/data"
