@@ -21,10 +21,11 @@ class Content extends Component {
     getPost() {
         axios.get(API.BASE)
             .then ( response => {
-                console.log(response);
-                this.setState({
-                    posts: response.data
-                });
+                if (response.data){
+                    this.setState({
+                        posts: response.data
+                    });
+                }
             })
             .catch( error => {
                console.log(error); 
