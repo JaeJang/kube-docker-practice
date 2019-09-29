@@ -27,6 +27,6 @@ app.set('db', db);
 new Router(app);
 
 app.server.listen(PORT, () => {
-    console.log("connected on port 3001");
+    console.log("connected on port " + PORT);
 });
 
