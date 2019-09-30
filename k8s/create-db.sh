@@ -1,6 +1,6 @@
 #! /bin/bash
 
-if [ ! -s db.sql]; then
+if [ ! -s db.sql ]; then
     echo "db.sql required"
     exit -1
 fi

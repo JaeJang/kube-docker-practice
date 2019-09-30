@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      containers:
+        - name: client
+          image: jaejang5566/kube-docker-client
+          ports:
+            - containerPort: 3000
+          env:
+            - name: API_HOST
+              value: api-cluster-ip-service

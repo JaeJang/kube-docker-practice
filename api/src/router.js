@@ -11,6 +11,7 @@ class Router {
         const db = app.get('db');
 
         app.get('/', (req, res) => {
+            console.log('GET /');
             db.query('SELECT * FROM Test', (error, results, fields) => {
                 if (error) {
                     return res.status(503).json({
@@ -26,6 +27,7 @@ class Router {
         });
 
         app.post('/add', (req,res) => {
+            console.log('POST /add')
             if(req.body.post) {
                 const newPost = {
                     post: req.body.post

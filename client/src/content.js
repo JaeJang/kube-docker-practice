@@ -39,6 +39,9 @@ class Content extends Component {
         axios.post(API.BASE + API.ADD, post)
             .then( res => {
                 console.log('success');
+            })
+            .catch(error => {
+                console.log(error);
             });
     }
 
