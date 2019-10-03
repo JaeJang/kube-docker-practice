@@ -1,4 +1,4 @@
 export const API = {
-    'BASE': '/api',
+    'BASE': 'http://api.jae.com',
     'ADD': '/add'
 }
