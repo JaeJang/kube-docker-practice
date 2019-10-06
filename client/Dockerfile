@@ -5,7 +5,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-#Ngnix
+#nginx
 FROM nginx
 EXPOSE 3000
 COPY ./default.conf /etc/nginx/conf.d/default.conf
