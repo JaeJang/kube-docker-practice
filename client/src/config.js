@@ -1,4 +1,4 @@
 export const API = {
-    'BASE': 'http://api.54.153.56.197.sslip.io',
+    'BASE': 'http://api.jae-kube.ga',
     'ADD': '/add'
 }

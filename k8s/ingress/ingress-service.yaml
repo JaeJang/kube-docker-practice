@@ -14,4 +14,4 @@ spec:
       protocol: TCP
       name: https
   selector:
-    app: nginx-ingress
+    app: nginx-ingress-controller

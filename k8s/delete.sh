@@ -4,6 +4,7 @@ kubectl delete deployment --all
 kubectl delete svc --all
 kubectl delete configmaps --all
 kubectl delete secret --all
+kubectl delete ingress --all
 
 
 kubectl delete deployment -ningress --all
@@ -13,3 +14,4 @@ kubectl delete secret -ningress --all
 kubectl delete ServiceAccount -ningress --all
 kubectl delete ClusterRole -ningress --all
 kubectl delete ClusterRoleBinding -ningress --all
+kubectl delete ingress -ningree --all
