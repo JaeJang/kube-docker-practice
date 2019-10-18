@@ -11,53 +11,40 @@ class Router {
         const db = app.get('db');
 
         app.get('/', (req, res) => {
-            db.connect( err => {
-                if (err) {
-                    return res.status(503).json({
-                        error: {
-                            message: "Unable to get"
-                        }
-                    });
-                }
-            });
+            console.log('GET /');
             db.query('SELECT * FROM Test', (error, results, fields) => {
-                if (err) {
+                if (error) {
                     return res.status(503).json({
                         error: {
-                            message: "Unable to get"
+                            message: "Unable to get",
+                            error: error
                         }
                     });
                 }
-                return res.status(200).json(results);
+                res.status(200).json(results);
             });
-            db.end();
+            
         });
 
         app.post('/add', (req,res) => {
-            if(req.body.newPost) {
-                db.connect( err => {
+            console.log('POST /add')
+            if(req.body.post) {
+                const newPost = {
+                    post: req.body.post
+                };
+                db.query('INSERT INTO Test SET ?', newPost, (err, results) => {
                     if (err) {
                         return res.status(503).json({
                             error: {
-                                message: "Unable to get"
+                                message: "Unable to save",
+                                error: err
                             }
                         });
                     }
+                    return res.status(200).json(results);
                 });
-                db.query('INSERT INTO Test SET ?', req.body.newPost, (err, results) => {
-                    if (err) {
-                        return res.status(503).json({
-                            error: {
-                                message: "Unable to save"
-                            }
-                        });
-                    }
-                    return res.status(200).json(result);
-                });
-                db.end();
             }
         });
     }
 }
-
 export default Router;

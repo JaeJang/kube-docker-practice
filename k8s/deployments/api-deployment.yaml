@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: jaejang5566/kube-docker-api
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MYSQL_HOST
+              value: mysql-cluster-ip-service
+            - name: MYSQL_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: MYSQL_USER
+            - name: MYSQL_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: MYSQL_DB
+            - name: MYSQL_PWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pword
+                  key: MYSQL_PWORD
+
