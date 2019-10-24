@@ -74,7 +74,8 @@ class Content extends Component {
                     <input type="text" onChange={this.onTextChange} name="newPost"/>
                     <button type="submit">submit</button>
                 </form>
-            </div>  
+            </div>
+            <div>EDITTED</div>  
           </div>
         );
 
